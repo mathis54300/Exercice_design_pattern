@@ -2,8 +2,9 @@
 
 namespace App;
 
-class MySQLQueryBuilder implements QueryBuilderInterface
+class LitteralBuilder implements QueryBuilderInterface
 {
+
     protected $select;
     protected $from;
     protected $where = [];
@@ -11,25 +12,25 @@ class MySQLQueryBuilder implements QueryBuilderInterface
 
     public function select(string $fields): QueryBuilderInterface
     {
-        $this->select = "SELECT $fields ";
+        $this->select = "Je sélectionne les champs $fields ";
         return $this;
     }
 
     public function from(string $table): QueryBuilderInterface
     {
-        $this->from = "FROM $table ";
+        $this->from = "de la table $table ";
         return $this;
     }
 
     public function where(string $condition, string $value, string $operator = '='): QueryBuilderInterface
     {
-        $this->where[] = "WHERE $condition $operator $value ";
+        $this->where[] = "où $condition $operator $value ";
         return $this;
     }
 
     public function andWhere(string $condition, string $value, string $operator = '='): QueryBuilderInterface
     {
-        $this->andWhere[] = "AND $condition $operator $value ";
+        $this->andWhere[] = "et $condition $operator $value ";
         return $this;
     }
 
