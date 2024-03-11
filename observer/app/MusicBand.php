@@ -7,11 +7,14 @@ use SplSubject;
 
 class MusicBand implements SplSubject
 {
-    private array $observers = [];
 
     // Hors exercice mais notable:
     // Promotion du constructeur: https://www.php.net/manual/fr/language.oop5.decon.php#language.oop5.decon.constructor.promotion
-    public function __construct(private string $name, private array $concert = [])
+    public function __construct(
+        private string $name,
+        private array  $concert = [],
+        private array  $observers = []
+    )
     {}
 
     public function addNewConcertDate(string $date, string $location): void
